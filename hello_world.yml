@@ -4,3 +4,10 @@
     - name: Hello Message
       debug:
         msg: "Hello World!!"
+    - name: Get collection versions
+      shell: ansible-galaxy collection list
+      register: collection_list
+
+    - name: Show collection versions
+      debug:
+        var: collection_list.stdout_lines
