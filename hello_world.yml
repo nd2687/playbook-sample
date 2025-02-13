@@ -4,6 +4,15 @@
     - name: Hello Message
       debug:
         msg: "Hello World!!"
+
+    - name: Get collection path
+      shell: echo $ANSIBLE_COLLECTIONS_PATH
+      register: collection_path
+
+    - name: Show collection path
+      debug:
+        var: collection_path
+        
     - name: Get collection versions
       shell: ansible-galaxy collection list
       register: collection_list
